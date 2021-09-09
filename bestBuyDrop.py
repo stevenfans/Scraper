@@ -79,12 +79,27 @@ class bestBuyDriver():
 
         signIn.click()
 
-        sleep(3)
+        sleep(2)
 
         # input cvc
         # inputCVC = driver.find_element_by_id('cvv')
         inputCVC = driver.find_element_by_xpath('//*[@id="cvv"]')
         inputCVC.send_keys('000')
 
+    def placeOrder(self): 
+        try: 
+            po = driver.find_element_by_xpath('//*[@id="checkoutApp"]/div[2]/div[1]/div[1]/main/div[2]/div[2]/div/div[4]/div[3]/div/div[2]/button')
+        except:
+            pass
 
+        try:
+            po = driver.find_element_by_css_selector('.btn.btn-lg.btn-block.btn-primary.button__fast-track')
+        except Exception:
+            pass
+        try: 
+            po = driver.find_element_by_class_name('payment__order-summary')
+        except Exception:
+            pass
 
+        # po.click()    
+        pass
