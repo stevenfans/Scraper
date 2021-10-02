@@ -3,6 +3,7 @@ from selenium.webdriver.chrome.options import Options
 from time import sleep
 from selenium.webdriver.common import desired_capabilities, proxy
 from selenium.webdriver.common.proxy import Proxy, ProxyType
+from selenium.common.exceptions import NoSuchElementException        
 
 PATH = "D:\VS Code\Scraper\chromedriver.exe"        
 
@@ -59,6 +60,8 @@ class bestBuyDriver():
 
     def fillForm(self):
 
+        # check if the guest sign is on webpage
+
         # email_in = input("type email: ")
         email_in = 'jajajackfrost96@gmail.com'
         pword_in = input("type pword: ")
@@ -71,6 +74,33 @@ class bestBuyDriver():
         email.send_keys(email_in)
         pword.send_keys(pword_in)
 
+        #Enter User Private Info
+        # firstName  = 'Steven'
+        # lastName   = 'Phan'
+        # street     = '3634534'
+        # city       = 'asdf'
+        # zipCode    = '90230'
+
+        # try: 
+        #     inFirstName = driver.find_element_by_xpath('//*[@id="consolidatedAddresses.ui_address_1179.firstName"]')
+        # except Exception:
+        #     pass
+        # try:
+        #     inFirstName = driver.find_element_by_css_selector('div.v-m.vertical-s.address-form__cell.address-form__first-name')
+        # except Exception:
+        #     pass
+        # try: 
+        #     inFirstName = driver.find_element_by_class_name('.v-m.vertical-s.address-form__cell.address-form__first-name')
+        # except Exception:
+        #     pass
+        # try: 
+        #     inFirstName = driver.find_element_by_id('consolidatedAddresses.ui_address_2.firstName')
+        # except Exception:
+        #     pass
+
+        # inFirstName.send_keys(firstName)
+
+        
         # sign in
         try: 
             signIn = driver.find_element_by_css_selector('.c-button.c-button-secondary.c-button-lg.c-button-block.c-button-icon.c-button-icon-leading.cia-form__controls__submit')
@@ -96,6 +126,7 @@ class bestBuyDriver():
             po = driver.find_element_by_css_selector('.btn.btn-lg.btn-block.btn-primary.button__fast-track')
         except Exception:
             pass
+
         try: 
             po = driver.find_element_by_class_name('payment__order-summary')
         except Exception:
@@ -103,3 +134,12 @@ class bestBuyDriver():
 
         # po.click()    
         pass
+
+    def css_exists(css):
+        
+        try:
+            driver.find_element_by_class_name(css)
+        except NoSuchElementException:
+            return False
+
+        return True

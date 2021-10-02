@@ -1,8 +1,3 @@
-# from selenium import webdriver
-# from selenium.webdriver.chrome.options import Options
-# from time import sleep
-# from selenium.webdriver.common import desired_capabilities, proxy
-# from selenium.webdriver.common.proxy import Proxy, ProxyType
 
 from bestBuyDrop import bestBuyDriver
 
@@ -31,7 +26,7 @@ def main():
         checkOut = bestBuyDriver().addToCart()
 
         if checkOut == True: 
-            # TODO: need to be able to fill out checkout forms as user or guest
+            # TODO: check if need to log in, otherwise go straight to checkout
             # TODO: add inputs for dummy credit card info
             # TODO: be able to check multiple sites
             # TODO: maybe spoof IP 
