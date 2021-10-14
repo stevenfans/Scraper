@@ -23,15 +23,15 @@ def main():
     while (1): #infinite loop
         # check best buy site to see item is in stock
         
-        checkOut = bestBuyDriver().addToCart()
+        checkOut = bestBuyDriver().addToCart() #infinite loop check if item is in cart and add to cart when it's available
 
         if checkOut == True: 
             # TODO: check if need to log in, otherwise go straight to checkout
             # TODO: add inputs for dummy credit card info
             # TODO: be able to check multiple sites
             # TODO: maybe spoof IP 
-            bestBuyDriver().fillForm()
-            bestBuyDriver().placeOrder()
+            bestBuyDriver().fillForm() # when the itme is added to cart, it signs into user account
+            bestBuyDriver().placeOrder() 
             pass
         
         # sleep(1) #add break point to pause

@@ -47,9 +47,14 @@ class bestBuyDriver():
                 # checkout = driver.find_element_by_xpath('//*[@id="cartApp"]/div[2]/div[1]/div/div[1]/div[1]/section[2]/div/div/div[4]/div/div[1]/button')
                 # checkout = driver.find_element_by_class_name('btn-primary')
                 try: 
-                     checkout = driver.find_element_by_css_selector('.btn.btn-lg.btn-block.btn-primary')
+                    checkout = driver.find_element_by_css_selector('.btn.btn-lg.btn-block.btn-primary')
                 except:
                     checkout = driver.find_element_by_class_name('checkout-buttons__checkout')
+                try:
+                    checkout = driver.find_element_by_xpath('//*[@id="cartApp"]/div[2]/div[1]/div/div[1]/div[1]/section[2]/div/div/div[4]/div/div[1]')
+                except:
+                    pass
+                    
 
                 checkout.click()
                 # item is added to cart and is ready to check out
@@ -73,34 +78,7 @@ class bestBuyDriver():
         # send information to form
         email.send_keys(email_in)
         pword.send_keys(pword_in)
-
-        #Enter User Private Info
-        # firstName  = 'Steven'
-        # lastName   = 'Phan'
-        # street     = '3634534'
-        # city       = 'asdf'
-        # zipCode    = '90230'
-
-        # try: 
-        #     inFirstName = driver.find_element_by_xpath('//*[@id="consolidatedAddresses.ui_address_1179.firstName"]')
-        # except Exception:
-        #     pass
-        # try:
-        #     inFirstName = driver.find_element_by_css_selector('div.v-m.vertical-s.address-form__cell.address-form__first-name')
-        # except Exception:
-        #     pass
-        # try: 
-        #     inFirstName = driver.find_element_by_class_name('.v-m.vertical-s.address-form__cell.address-form__first-name')
-        # except Exception:
-        #     pass
-        # try: 
-        #     inFirstName = driver.find_element_by_id('consolidatedAddresses.ui_address_2.firstName')
-        # except Exception:
-        #     pass
-
-        # inFirstName.send_keys(firstName)
-
-        
+  
         # sign in
         try: 
             signIn = driver.find_element_by_css_selector('.c-button.c-button-secondary.c-button-lg.c-button-block.c-button-icon.c-button-icon-leading.cia-form__controls__submit')
@@ -110,6 +88,62 @@ class bestBuyDriver():
         signIn.click()
 
         sleep(2)
+
+
+
+        # Enter User Private Info
+        firstName  = 'Steven'
+        lastName   = 'Phan'
+        street     = '3634534'
+        city       = 'asdf'
+        zipCode    = '90230'
+        
+        sleep(10)
+
+        # inFirstName = driver.find_element_by_xpath('//*[@id="consolidatedAddresses.ui_address_1227.firstName]')
+
+
+        try: 
+            inFirstName = driver.find_element_by_xpath('//*[@id="consolidatedAddresses.ui_address_1227.firstName"]')
+        except Exception:
+            pass
+        try: 
+            inFirstName = driver.find_element_by_id("consolidatedAddresses.ui_address_2.firstName")
+        except Exception:
+            pass
+
+        try: 
+            inLastName = driver.find_element_by_xpath('//*[@id="consolidatedAddresses.ui_address_1227.lastName"]')
+        except Exception:
+            pass
+        try: 
+            inLastName = driver.find_element_by_id("consolidatedAddresses.ui_address_1227.lastName")
+        except Exception:
+            pass
+
+        try: 
+            inStreet = driver.find_element_by_xpath('//*[@id="consolidatedAddresses.ui_address_1227.street"]')
+        except Exception:
+            pass
+        try: 
+            inStreet = driver.find_element_by_id("consolidatedAddresses.ui_address_1227.street")
+        except Exception:
+            pass
+
+        try: 
+            inCity = driver.find_element_by_xpath('//*[@id="consolidatedAddresses.ui_address_1227.city"]')
+        except Exception:
+            pass
+        try: 
+            inCity = driver.find_element_by_id("consolidatedAddresses.ui_address_1227.city")
+        except Exception:
+            pass
+
+
+        inFirstName.send_keys(firstName)       
+        inLastName.send_keys(lastName)
+        inStreet.send_keys(street)
+        inCity.send_keys(city)
 
         # input cvc
         # inputCVC = driver.find_element_by_id('cvv')
