@@ -89,61 +89,63 @@ class bestBuyDriver():
 
         sleep(2)
 
+        # Check current URL
+        # If URL is fast-track then it means you don't need to enter Private Info
+        fulfillment = driver.current_url
+        print(fulfillment)
+
+        if 'fulfillment' in fulfillment:
+
+            # Enter User Private Info
+            firstName  = 'Steven'
+            lastName   = 'Phan'
+            street     = '3634534'
+            city       = 'asdf'
+            zipCode    = '90230'
+            
+            sleep(10)
+
+            try: 
+                inFirstName = driver.find_element_by_xpath('//*[@id="consolidatedAddresses.ui_address_1227.firstName"]')
+            except Exception:
+                pass
+            try: 
+                inFirstName = driver.find_element_by_id("consolidatedAddresses.ui_address_2.firstName")
+            except Exception:
+                pass
+
+            try: 
+                inLastName = driver.find_element_by_xpath('//*[@id="consolidatedAddresses.ui_address_1227.lastName"]')
+            except Exception:
+                pass
+            try: 
+                inLastName = driver.find_element_by_id("consolidatedAddresses.ui_address_1227.lastName")
+            except Exception:
+                pass
+
+            try: 
+                inStreet = driver.find_element_by_xpath('//*[@id="consolidatedAddresses.ui_address_1227.street"]')
+            except Exception:
+                pass
+            try: 
+                inStreet = driver.find_element_by_id("consolidatedAddresses.ui_address_1227.street")
+            except Exception:
+                pass
+
+            try: 
+                inCity = driver.find_element_by_xpath('//*[@id="consolidatedAddresses.ui_address_1227.city"]')
+            except Exception:
+                pass
+            try: 
+                inCity = driver.find_element_by_id("consolidatedAddresses.ui_address_1227.city")
+            except Exception:
+                pass
 
 
-        # Enter User Private Info
-        firstName  = 'Steven'
-        lastName   = 'Phan'
-        street     = '3634534'
-        city       = 'asdf'
-        zipCode    = '90230'
-        
-        sleep(10)
-
-        # inFirstName = driver.find_element_by_xpath('//*[@id="consolidatedAddresses.ui_address_1227.firstName]')
-
-
-        try: 
-            inFirstName = driver.find_element_by_xpath('//*[@id="consolidatedAddresses.ui_address_1227.firstName"]')
-        except Exception:
-            pass
-        try: 
-            inFirstName = driver.find_element_by_id("consolidatedAddresses.ui_address_2.firstName")
-        except Exception:
-            pass
-
-        try: 
-            inLastName = driver.find_element_by_xpath('//*[@id="consolidatedAddresses.ui_address_1227.lastName"]')
-        except Exception:
-            pass
-        try: 
-            inLastName = driver.find_element_by_id("consolidatedAddresses.ui_address_1227.lastName")
-        except Exception:
-            pass
-
-        try: 
-            inStreet = driver.find_element_by_xpath('//*[@id="consolidatedAddresses.ui_address_1227.street"]')
-        except Exception:
-            pass
-        try: 
-            inStreet = driver.find_element_by_id("consolidatedAddresses.ui_address_1227.street")
-        except Exception:
-            pass
-
-        try: 
-            inCity = driver.find_element_by_xpath('//*[@id="consolidatedAddresses.ui_address_1227.city"]')
-        except Exception:
-            pass
-        try: 
-            inCity = driver.find_element_by_id("consolidatedAddresses.ui_address_1227.city")
-        except Exception:
-            pass
-
-
-        inFirstName.send_keys(firstName)       
-        inLastName.send_keys(lastName)
-        inStreet.send_keys(street)
-        inCity.send_keys(city)
+            inFirstName.send_keys(firstName)       
+            inLastName.send_keys(lastName)
+            inStreet.send_keys(street)
+            inCity.send_keys(city)
 
         # input cvc
         # inputCVC = driver.find_element_by_id('cvv')
