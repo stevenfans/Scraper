@@ -8,7 +8,7 @@ from selenium.common.exceptions import NoSuchElementException
 PATH = "D:\VS Code\Scraper\chromedriver.exe"        
 
 driver = webdriver.Chrome(PATH)
-driver.get("https://www.bestbuy.com/site/bose-quietcomfort-35-ii-wireless-noise-cancelling-headphones-black/5876115.p?skuId=5876115")
+driver.get("https://www.bestbuy.com/site/microsoft-controller-for-xbox-series-x-xbox-series-s-and-xbox-one-latest-model-pulse-red/6448932.p?skuId=6448932")
 
 # driver.get("https://drsquatch.com/collections/bar-soaps");
 # driver.get("https://www.bestbuy.com/site/nvidia-geforce-rtx-3060-ti-8gb-gddr6-pci-express-4-0-graphics-card-steel-and-black/6439402.p?skuId=6439402") #3060ti
@@ -119,7 +119,7 @@ class bestBuyDriver():
             except Exception:
                 pass
             try: 
-                inLastName = driver.find_element_by_id("consolidatedAddresses.ui_address_1227.lastName")
+                inLastName = driver.find_element_by_id("consolidatedAddresses.ui_address_2.lastName")
             except Exception:
                 pass
 
@@ -168,7 +168,7 @@ class bestBuyDriver():
         except Exception:
             pass
 
-        # po.click()    
+        po.click()    
         pass
 
     def css_exists(css):
